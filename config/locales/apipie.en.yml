@@ -2,4 +2,4 @@ en:
   doc:
     v1:
       authenticate: 'User authentication. Returns token'
-      token: "For each request user Authorization header: 'Bearer token_value'"
+      token: "For each request use Authorization header: 'Bearer token_value'"
