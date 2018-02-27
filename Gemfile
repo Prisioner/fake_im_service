@@ -9,9 +9,17 @@ end
 gem 'rails', '~> 5.1.5'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
-gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
+
+# API Documentation Tool
+gem 'apipie-rails', github: 'Apipie/apipie-rails'
+
+# JSON Web Token && API
+gem 'jwt'
+gem  'simple_command'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-10-stable'
+gem 'jbuilder', '~> 2.5'
 
 
 group :development, :test do
