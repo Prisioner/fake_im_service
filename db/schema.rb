@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20180226201425) do
     t.bigint "message_id"
     t.bigint "recipient_id"
     t.string "status"
-    t.string "details"
+    t.jsonb "details", default: "{}", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
