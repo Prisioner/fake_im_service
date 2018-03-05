@@ -30,6 +30,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.4'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 group :development do
