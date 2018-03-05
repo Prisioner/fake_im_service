@@ -1,24 +1,65 @@
-# README
+# Fake IM Service (Test Application)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Описание
 
-Things you may want to cover:
+Проект создан в рамках выполнения тестового задания от компании 404 Group. Требуется создать прототип микросервиса, имитирующий отправку сообщений в API IM-сервисов (без фактического взаимодействия с ними и отправки сообщений)
 
-* Ruby version
+##### Ruby version
+```
+ruby 2.3.1
+```
 
-* System dependencies
+##### Rails version
+```
+Rails 5.1.5
+```
 
-* Configuration
+### Первый запуск
+```
+gem install bundler
+bundle install
+cp config/database.yml.example config/database.yml
+cp config/secrets.yml.example config/secrets.yml
+```
 
-* Database creation
+Далее необходимо сконфигурировать файлы `config/database.yml` и `config/secrets.yml` по аналогии с приведенным образцом.
 
-* Database initialization
+Затем подготавливаем базу данных:
 
-* How to run the test suite
+```
+rails db:create
+rails db:migrate
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Запуск сервера
 
-* Deployment instructions
+```
+rails s
+```
 
-* ...
+Запуск обработчика отложенных задач (использован gem resque):
+```
+QUEUE=im_fake_service* bundle exec rake environment resque:work
+```
+
+Запуск обработчика задачи по расписанию:
+```
+rake environment resque:scheduler
+```
+
+### Перед началом работы
+
+Необходимо через rails-консоль (`rails c`) создать пользователя (или нескольких)
+
+```
+User.create(email: 'example@example.com', password: '12345678')
+```
+
+### Тесты
+```
+rspec
+```
+
+### Документация API
+
+Описание существующих экшенов доступно по адресу http://localhost:3000/apipie
