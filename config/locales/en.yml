@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activemodel:
+    errors:
+      models:
+        message_handler:
+          attributes:
+            base:
+              uid_blank: "Recipient's UID can't be blank"
+              im_blank: "Recipient's IM can't be blank"
