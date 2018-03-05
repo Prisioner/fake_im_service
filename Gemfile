@@ -11,6 +11,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.7'
 
 gem 'devise'
+gem 'resque', '~> 1.27'
+gem 'resque-scheduler'
+gem 'redis', '<4'
 
 # API Documentation Tool
 gem 'apipie-rails', github: 'Apipie/apipie-rails'

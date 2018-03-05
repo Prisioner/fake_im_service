@@ -7,7 +7,7 @@ class Api::V1::BaseController < ActionController::Base
 
   protected
 
-  rescue_from Apipie::ParamMissing do |e|
+  rescue_from Apipie::ParamMissing, Apipie::ParamInvalid do |e|
     respond_to do |format|
       format.json { render json: { code: 422, errors: [e.message] }, status: :unprocessable_entity }
     end

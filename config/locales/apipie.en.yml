@@ -3,3 +3,6 @@ en:
     v1:
       authenticate: 'User authentication. Returns token'
       token: "For each request use Authorization header: 'Bearer token_value'"
+
+      messages:
+        create: 'Creates new message(s) in delivery queue'
