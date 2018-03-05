@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'authenticate', to: 'authentication#authenticate'
 
-      resource :messages, only: [:create]
+      resources :messages, only: [:create]
+      resources :message_statuses, only: [:show]
     end
   end
 end

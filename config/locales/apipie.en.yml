@@ -6,3 +6,6 @@ en:
 
       messages:
         create: 'Creates new message(s) in delivery queue'
+
+      message_statuses:
+        show: 'Returns message status by ID'
