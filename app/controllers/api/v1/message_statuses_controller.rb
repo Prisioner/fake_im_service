@@ -4,13 +4,13 @@ class Api::V1::MessageStatusesController < Api::V1::BaseController
 
   resource_description do
     formats ['json']
-    error 401, 'Not authorized'
-    error 403, 'Access denied'
-    error 404, 'Message status not found'
+    error 401, I18n.t('doc.v1.authentication.errors.not_authorized')
+    error 403, I18n.t('doc.v1.message_statuses.errors.e403')
+    error 404, I18n.t('doc.v1.message_statuses.errors.e404')
   end
 
   api :GET, '/v1/message_statuses/:id', I18n.t('doc.v1.message_statuses.show')
-  param :id, :number, required: true, desc: 'Message status ID'
+  param :id, :number, required: true, desc: I18n.t('doc.v1.message_statuses.id')
   example <<-EXAMPLE
     {
       'code': 200,
@@ -42,7 +42,7 @@ class Api::V1::MessageStatusesController < Api::V1::BaseController
   def authorize_user
     unless @message_status.user == current_user
       respond_to do |format|
-        format.json { render json: { code: 403, errors: ['Access denied'] }, status: 403 }
+        format.json { render json: { code: 403, errors: [I18n.t('doc.v1.message_statuses.errors.e403')] }, status: 403 }
       end
     end
   end

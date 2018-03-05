@@ -1,11 +1,29 @@
 en:
   doc:
     v1:
-      authenticate: 'User authentication. Returns token'
-      token: "For each request use Authorization header: 'Bearer token_value'"
+      authentication:
+        authenticate: 'User authentication. Returns token'
+        token: "For each request use Authorization header: 'Bearer token_value'"
+        email: 'Email for login'
+        password: 'Password for login'
+        errors:
+          e401: 'Invalid credentials'
+          e422: 'Validation error'
+          not_authorized: 'Not Authorized'
 
       messages:
+        body: 'Message text'
+        send_at: 'Date/Time for delayed sending. Expected format - timestamp. Past or invalid timestamps will be ignored'
+        recipients: 'Message recipients'
+        uid: 'User identifier in IM Service'
+        im: 'IM Service'
+        errors:
+          e422: 'Validation error'
         create: 'Creates new message(s) in delivery queue'
 
       message_statuses:
+        id: 'Message status ID'
+        errors:
+          e403: 'Access denied'
+          e404: 'Message status not found'
         show: 'Returns message status by ID'

@@ -22,6 +22,6 @@ class Api::V1::BaseController < ActionController::Base
   def authenticate_request
     @current_user = AuthorizeApiRequest.call(request.headers).result
 
-    render json: { code: 401, errors: ['Not Authorized'] }, status: 401 unless @current_user
+    render json: { code: 401, errors: [I18n.t('doc.v1.authentication.errors.not_authorized')] }, status: 401 unless @current_user
   end
 end

@@ -38,3 +38,6 @@ en:
             base:
               uid_blank: "Recipient's UID can't be blank"
               im_blank: "Recipient's IM can't be blank"
+  errors:
+    duplicated_message: 'Duplicated message'
+    unknown_im: 'Unknown IM service'

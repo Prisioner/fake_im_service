@@ -8,7 +8,7 @@ class MessengerService
     when 'whatsapp'
       WhatsappClient.execute(message_status)
     else
-      message_status.update(status: :failed, details: { code: '422', info: 'Unknown IM service' })
+      message_status.update(status: :failed, details: { code: '422', info: I18n.t('errors.unknown_im') })
     end
   end
 end

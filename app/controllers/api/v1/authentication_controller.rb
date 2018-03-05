@@ -3,18 +3,20 @@ class Api::V1::AuthenticationController < Api::V1::BaseController
 
   resource_description do
     formats ['json']
-    error 401, 'Invalid credentials'
-    error 422, 'Validation error'
+    error 401, I18n.t('doc.v1.authentication.errors.e401')
+    error 422, I18n.t('doc.v1.authentication.errors.e422')
   end
 
-  api :POST, '/v1/authenticate', I18n.t('doc.v1.authenticate')
-  param :email, String, required: true, desc: 'Email for login'
-  param :password, String, required: true, desc: 'Password for login'
+  api :POST, '/v1/authenticate', I18n.t('doc.v1.authentication.authenticate')
+  param :email, String, required: true, desc: I18n.t('doc.v1.authentication.email')
+  param :password, String, required: true, desc: I18n.t('doc.v1.authentication.password')
+  description "Allow to recieve authorization token for other API methods. Use header 'Authorization: Bearer %token%'"
   example <<-EXAMPLE
     {
       'code': 200,
       'auth_token': 'xxxxxxxxxxxx.xxxxxxxxxxxxxx.xxxxxxxxxxxxxx'
     }
+    ------------------------------
     {
       'code': 422,
       'errors': [

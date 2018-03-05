@@ -5,7 +5,7 @@ class SendMessageJob < ApplicationJob
     message_status = MessageStatus.includes(:recipient).includes(:message).find(message_status_id)
 
     if duplicated_message?(message_status)
-      message_status.update(status: :failed, details: { code: '422', info: 'Duplicated message' })
+      message_status.update(status: :failed, details: { code: '422', info: I18n.t('errors.duplicated_message') })
     else
       MessengerService.execute(message_status)
     end

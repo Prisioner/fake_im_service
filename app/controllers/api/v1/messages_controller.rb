@@ -1,17 +1,17 @@
 class Api::V1::MessagesController < Api::V1::BaseController
   resource_description do
     formats ['json']
-    error 401, 'Not authorized'
-    error 422, 'Validation error'
+    error 401, I18n.t('doc.v1.authentication.errors.not_authorized')
+    error 422, I18n.t('doc.v1.messages.errors.e422')
   end
 
   api :POST, '/v1/messages', I18n.t('doc.v1.messages.create')
   param :message, Hash do
-    param :body, String, required: true, desc: 'Message text'
-    param :send_at, String, desc: 'Date/Time for delayed sending. Expected format - timestamp. Past or invalid timestamp will be ignored'
-    param :recipients, Array, required: true, desc: 'Message recipients' do
-      param :uid, String, required: true, desc: 'User identifier in IM Service'
-      param :im, Recipient::IM_SERVICES, required: true, desc: 'IM Service'
+    param :body, String, required: true, desc: I18n.t('doc.v1.messages.body')
+    param :send_at, String, desc: I18n.t('doc.v1.messages.send_at')
+    param :recipients, Array, required: true, desc: I18n.t('doc.v1.messages.recipients') do
+      param :uid, String, required: true, desc: I18n.t('doc.v1.messages.uid')
+      param :im, Recipient::IM_SERVICES, required: true, desc: I18n.t('doc.v1.messages.im')
     end
   end
   example <<-EXAMPLE
